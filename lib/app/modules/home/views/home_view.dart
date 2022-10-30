@@ -40,51 +40,57 @@ class HomeView extends GetView<HomeController> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
-            child: VerticalTabs(
-              tabsShadowColor: Colors.transparent,
-              tabBackgroundColor: AppColour.COLOR_WHITE,
-              backgroundColor: AppColour.COLOR_WHITE,
-              indicatorColor: AppColour.APPBAR_HEADER_COL0R,
-              selectedTabBackgroundColor: Colors.transparent,
-              indicatorWidth: 2,
-              indicatorSide: IndicatorSide.end,
-              tabsWidth: 80,
-              direction: TextDirection.ltr,
-              contentScrollAxis: Axis.vertical,
-              changePageDuration: const Duration(milliseconds: 500),
-              tabs: <Tab>[
-                Tab(
-                  child: tabItem(title: 'Home'),
-                ),
-                Tab(
-                  child: tabItem(title: 'Mie'),
-                ),
-                Tab(
-                  child: tabItem(title: 'Sushi'),
-                ),
-                Tab(
-                  child: tabItem(title: 'Dimsum'),
-                ),
-                Tab(
-                  child: tabItem(title: 'Minum'),
-                ),
-                Tab(
-                  child: tabItem(title: 'Minum'),
-                ),
-                Tab(
-                  child: tabItem(title: 'Minum'),
-                ),
-              ],
-              contents: [
-                tabsContent('Flutter',
-                    'You can change page by scrolling content vertically'),
-                tabsContent('Dart'),
-                tabsContent('Javascript'),
-                tabsContent('NodeJS'),
-                tabsContent('NodeJS'),
-                tabsContent('NodeJS'),
-                tabsContent('NodeJS'),
-              ],
+            child: Obx(
+              () => controller.isLoading.value
+                  ? const Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : VerticalTabs(
+                      tabsShadowColor: Colors.transparent,
+                      tabBackgroundColor: AppColour.COLOR_WHITE,
+                      backgroundColor: AppColour.COLOR_WHITE,
+                      indicatorColor: AppColour.APPBAR_HEADER_COL0R,
+                      selectedTabBackgroundColor: Colors.transparent,
+                      indicatorWidth: 2,
+                      indicatorSide: IndicatorSide.end,
+                      tabsWidth: 80,
+                      direction: TextDirection.ltr,
+                      contentScrollAxis: Axis.vertical,
+                      changePageDuration: const Duration(milliseconds: 500),
+                      tabs: [
+                        Tab(
+                          child: tabItem(title: 'Home'),
+                        ),
+                        Tab(
+                          child: tabItem(title: 'Mie'),
+                        ),
+                        Tab(
+                          child: tabItem(title: 'Sushi'),
+                        ),
+                        Tab(
+                          child: tabItem(title: 'Dimsum'),
+                        ),
+                        Tab(
+                          child: tabItem(title: 'Minum'),
+                        ),
+                        Tab(
+                          child: tabItem(title: 'Minum'),
+                        ),
+                        Tab(
+                          child: tabItem(title: 'Minum'),
+                        ),
+                      ],
+                      contents: [
+                        tabsContent('Flutter',
+                            'You can change page by scrolling content vertically'),
+                        tabsContent('Dart'),
+                        tabsContent('Javascript'),
+                        tabsContent('NodeJS'),
+                        tabsContent('NodeJS'),
+                        tabsContent('NodeJS'),
+                        tabsContent('NodeJS'),
+                      ],
+                    ),
             ),
           )
         ],
