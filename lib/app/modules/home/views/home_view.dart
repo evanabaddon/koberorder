@@ -41,7 +41,7 @@ class HomeView extends GetView<HomeController> {
         children: [
           Expanded(
             child: VerticalTabs(
-              tabsShadowColor: Colors.white,
+              tabsShadowColor: Colors.transparent,
               tabBackgroundColor: AppColour.COLOR_WHITE,
               backgroundColor: AppColour.COLOR_WHITE,
               indicatorColor: AppColour.APPBAR_HEADER_COL0R,
