@@ -1,6 +1,9 @@
-import 'package:flutter/cupertino.dart';
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:koberorder/app/modules/home/views/home_view.dart';
+import 'package:koberorder/app/modules/storedetail/views/storedetail_view.dart';
 import 'package:koberorder/util/colour.dart';
 
 Widget storeWidget() {
@@ -10,7 +13,7 @@ Widget storeWidget() {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         InkWell(
-          onTap: () {},
+          onTap: () => Get.to(const StoredetailView()),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -157,29 +160,27 @@ Widget storeWidget() {
                   ),
                 ],
               ),
-              Divider()
+              const Divider()
             ],
           ),
         ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 35,
-              color: AppColour.APPBAR_HEADER_COL0R,
-              child: const Center(
-                child: Text(
-                  "Pilih Outlet",
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
+        InkWell(
+          onTap: () => Get.to(const HomeView()),
+          child: Container(
+            height: 35,
+            color: AppColour.APPBAR_HEADER_COL0R,
+            child: const Center(
+              child: Text(
+                "Pilih Outlet",
+                style: TextStyle(
+                  color: Colors.white,
                 ),
               ),
             ),
-            const SizedBox(
-              height: 20.0,
-            ),
-          ],
+          ),
+        ),
+        const SizedBox(
+          height: 20.0,
         ),
       ],
     ),

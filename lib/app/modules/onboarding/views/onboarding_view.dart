@@ -1,13 +1,10 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:koberorder/app/modules/home/views/home_view.dart';
 import 'package:koberorder/app/modules/onboarding/views/widgets/drawerFooter.dart';
 import 'package:koberorder/app/modules/onboarding/views/widgets/drawerHeader.dart';
 import 'package:koberorder/app/modules/onboarding/views/widgets/drawerItem.dart';
-import 'package:koberorder/app/modules/onboarding/views/widgets/infoWidget.dart';
 import 'package:koberorder/app/modules/search/views/search_view.dart';
 import 'package:koberorder/app/modules/store/views/store_view.dart';
 import 'package:koberorder/util/colour.dart';
@@ -20,6 +17,7 @@ class OnboardingView extends GetView<OnboardingController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColour.COLOR_WHITE,
       appBar: AppBar(
         title: poinWidget(),
         actions: [
@@ -39,6 +37,7 @@ class OnboardingView extends GetView<OnboardingController> {
           ),
         ],
       ),
+      // drawer
       drawer: Drawer(
           child: ListView(
         children: [
@@ -72,13 +71,14 @@ class OnboardingView extends GetView<OnboardingController> {
             child: Text(
               "Version 1.0",
               style: TextStyle(
-                  fontSize: 8.0, color: AppColour.APPBAR_HEADER_COL0R),
+                  fontSize: 10.0, color: AppColour.APPBAR_HEADER_COL0R),
             ),
           ),
         ],
       )),
       body: Column(
         children: [
+          //welcome
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -117,6 +117,7 @@ class OnboardingView extends GetView<OnboardingController> {
               ],
             ),
           ),
+          // image
           Expanded(
             child: Stack(
               children: [
@@ -132,14 +133,14 @@ class OnboardingView extends GetView<OnboardingController> {
                   top: 20,
                   left: 20,
                   child: InkWell(
-                    onTap: () => Get.to(StoreView()),
+                    onTap: () => Get.to(const StoreView()),
                     child: Row(
                       children: [
                         Stack(
                           children: [
                             Container(
-                              height: 90,
-                              width: 200,
+                              height: 135,
+                              width: 250,
                               decoration: const BoxDecoration(
                                 color: AppColour.COLOR_WHITE,
                                 borderRadius: BorderRadius.all(
@@ -156,7 +157,7 @@ class OnboardingView extends GetView<OnboardingController> {
                                 ],
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.all(12.0),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
@@ -167,12 +168,12 @@ class OnboardingView extends GetView<OnboardingController> {
                                         Text(
                                           "Kober Ciliwung",
                                           style: TextStyle(
-                                            fontSize: 12.0,
+                                            fontSize: 14.0,
                                           ),
                                         ),
                                         FaIcon(
                                           FontAwesomeIcons.mapLocationDot,
-                                          size: 14,
+                                          size: 24,
                                           color: AppColour.APPBAR_HEADER_COL0R,
                                         ),
                                       ],
@@ -203,7 +204,7 @@ class OnboardingView extends GetView<OnboardingController> {
                                             child: Text(
                                               "2.5Km",
                                               style: TextStyle(
-                                                fontSize: 6.0,
+                                                fontSize: 12.0,
                                                 color: Colors.white,
                                               ),
                                             ),
@@ -222,7 +223,7 @@ class OnboardingView extends GetView<OnboardingController> {
                               ),
                             ),
                             Container(
-                              width: 200,
+                              width: 250,
                               decoration: const BoxDecoration(
                                 color: AppColour.APPBAR_HEADER_COL0R,
                                 borderRadius: BorderRadius.all(
@@ -232,20 +233,12 @@ class OnboardingView extends GetView<OnboardingController> {
                                 ),
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.all(12.0),
                                 child: Center(
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: const [
-                                      Text(
-                                        "Ubah Lokasi",
-                                        style: TextStyle(
-                                          fontSize: 8.0,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white,
-                                        ),
-                                      ),
                                       FaIcon(
                                         FontAwesomeIcons.shop,
                                         size: 14,
@@ -254,7 +247,7 @@ class OnboardingView extends GetView<OnboardingController> {
                                       Text(
                                         "Outlet Kober terdekat",
                                         style: TextStyle(
-                                          fontSize: 8.0,
+                                          fontSize: 12.0,
                                           fontWeight: FontWeight.bold,
                                           color: Colors.white,
                                         ),
@@ -273,6 +266,7 @@ class OnboardingView extends GetView<OnboardingController> {
               ],
             ),
           ),
+          // footer
           Align(
             alignment: Alignment.bottomCenter,
             child: Column(

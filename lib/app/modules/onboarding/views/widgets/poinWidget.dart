@@ -4,7 +4,7 @@ import '../../../../../util/colour.dart';
 Widget poinWidget() {
   return Container(
     height: 30,
-    width: 50,
+    width: 60,
     decoration: const BoxDecoration(
       color: AppColour.APPBAR_HEADER_COL0R,
       borderRadius: BorderRadius.all(
@@ -16,6 +16,7 @@ Widget poinWidget() {
     child: Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: const [
           Text(
             "0",
