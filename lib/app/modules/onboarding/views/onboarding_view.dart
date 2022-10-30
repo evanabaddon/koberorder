@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,6 +9,7 @@ import 'package:koberorder/app/modules/onboarding/views/widgets/drawerItem.dart'
 import 'package:koberorder/app/modules/search/views/search_view.dart';
 import 'package:koberorder/app/modules/store/views/store_view.dart';
 import 'package:koberorder/util/colour.dart';
+import 'package:lottie/lottie.dart';
 import '../controllers/onboarding_controller.dart';
 import 'widgets/itemKupon.dart';
 import 'widgets/poinWidget.dart';
@@ -36,6 +38,7 @@ class OnboardingView extends GetView<OnboardingController> {
             ),
           ),
         ],
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
       // drawer
       drawer: Drawer(
@@ -294,28 +297,8 @@ class OnboardingView extends GetView<OnboardingController> {
                                   color: Colors.white,
                                 ),
                               ),
-                              Container(
-                                height: 35,
-                                width: 35,
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    width: 2.0,
-                                    color: Colors.white,
-                                  ),
-                                  borderRadius: const BorderRadius.all(
-                                    Radius.circular(
-                                      50.0,
-                                    ),
-                                  ),
-                                ),
-                                child: const Center(
-                                  child: FaIcon(
-                                    FontAwesomeIcons.arrowUp,
-                                    color: Colors.white,
-                                    size: 14,
-                                  ),
-                                ),
-                              ),
+                              Lottie.asset('assets/lottie/arrow.json',
+                                  width: 50, height: 50),
                             ],
                           ),
                         ],

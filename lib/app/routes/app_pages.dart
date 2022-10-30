@@ -6,10 +6,14 @@ import '../modules/coupon/bindings/coupon_binding.dart';
 import '../modules/coupon/views/coupon_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/menu/bindings/menu_binding.dart';
+import '../modules/menu/views/menu_view.dart';
 import '../modules/onboarding/bindings/onboarding_binding.dart';
 import '../modules/onboarding/views/onboarding_view.dart';
 import '../modules/search/bindings/search_binding.dart';
 import '../modules/search/views/search_view.dart';
+import '../modules/startup/bindings/startup_binding.dart';
+import '../modules/startup/views/startup_view.dart';
 import '../modules/store/bindings/store_binding.dart';
 import '../modules/store/views/store_view.dart';
 import '../modules/storedetail/bindings/storedetail_binding.dart';
@@ -57,6 +61,16 @@ class AppPages {
       name: _Paths.STOREDETAIL,
       page: () => const StoredetailView(),
       binding: StoredetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.MENU,
+      page: () => const MenuView(),
+      binding: MenuBinding(),
+    ),
+    GetPage(
+      name: _Paths.STARTUP,
+      page: () => const StartupView(),
+      binding: StartupBinding(),
     ),
   ];
 }

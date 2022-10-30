@@ -41,11 +41,11 @@ class HomeView extends GetView<HomeController> {
         children: [
           Expanded(
             child: VerticalTabs(
-              tabsShadowColor: Colors.transparent,
+              tabsShadowColor: Colors.white,
               tabBackgroundColor: AppColour.COLOR_WHITE,
               backgroundColor: AppColour.COLOR_WHITE,
-              selectedTabBackgroundColor: Colors.transparent,
               indicatorColor: AppColour.APPBAR_HEADER_COL0R,
+              selectedTabBackgroundColor: Colors.transparent,
               indicatorWidth: 2,
               indicatorSide: IndicatorSide.end,
               tabsWidth: 80,
@@ -68,12 +68,20 @@ class HomeView extends GetView<HomeController> {
                 Tab(
                   child: tabItem(title: 'Minum'),
                 ),
+                Tab(
+                  child: tabItem(title: 'Minum'),
+                ),
+                Tab(
+                  child: tabItem(title: 'Minum'),
+                ),
               ],
               contents: [
                 tabsContent('Flutter',
                     'You can change page by scrolling content vertically'),
                 tabsContent('Dart'),
                 tabsContent('Javascript'),
+                tabsContent('NodeJS'),
+                tabsContent('NodeJS'),
                 tabsContent('NodeJS'),
                 tabsContent('NodeJS'),
               ],

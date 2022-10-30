@@ -45,7 +45,7 @@ Widget tabItem({
               color: AppColour.APPBAR_HEADER_COL0R),
         ),
         const SizedBox(
-          height: 8.0,
+          height: 20.0,
         ),
       ],
     ),

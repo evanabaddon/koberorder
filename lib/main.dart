@@ -15,7 +15,13 @@ void main() {
           elevation: 0,
           backgroundColor: Colors.white,
           titleTextStyle: TextStyle(color: AppColour.APPBAR_HEADER_COL0R),
-          systemOverlayStyle: SystemUiOverlayStyle.light,
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: AppColour.COLOR_WHITE,
+            // Status bar brightness (optional)
+            statusBarIconBrightness:
+                Brightness.dark, // For Android (dark icons)
+            statusBarBrightness: Brightness.light, // For iOS (dark icons)
+          ),
         ),
       ),
       title: "Kober App",
