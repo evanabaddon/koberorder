@@ -16,7 +16,7 @@ void main() {
           titleTextStyle: TextStyle(color: AppColour.APPBAR_HEADER_COL0R),
         ),
       ),
-      title: "Application",
+      title: "Kober App",
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
     ),
