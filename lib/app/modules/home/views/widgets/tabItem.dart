@@ -4,6 +4,7 @@ import 'package:koberorder/util/colour.dart';
 
 Widget tabItem({
   required String title,
+  required String icon,
 }) {
   return Center(
     child: Column(
@@ -24,13 +25,11 @@ Widget tabItem({
                 color: AppColour.APPBAR_HEADER_COL0R,
               ),
             ),
-            child: const Padding(
+            child: Padding(
               padding: EdgeInsets.all(8.0),
               child: Center(
-                  child: FaIcon(
-                FontAwesomeIcons.eyeLowVision,
-                color: AppColour.APPBAR_HEADER_COL0R,
-              )),
+                child: Image.network(icon),
+              ),
             ),
           ),
         ),

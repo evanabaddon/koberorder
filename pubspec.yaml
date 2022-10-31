@@ -12,6 +12,7 @@ dependencies:
   flutter_slider_drawer: ^2.1.1
   font_awesome_flutter: ^10.2.1
   get: 4.6.5
+  http: ^0.13.5
   line_icons: ^2.0.1
   lottie: ^1.4.3
   sliding_up_panel: ^2.0.0+1
