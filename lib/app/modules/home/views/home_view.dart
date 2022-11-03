@@ -1,8 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import 'package:get/get.dart';
-import 'package:koberorder/app/data/models/categories.dart';
+import 'package:koberorder/app/data/models/produk.dart';
 import 'package:koberorder/app/modules/cart/views/cart_view.dart';
 import 'package:koberorder/app/modules/home/views/widgets/tabItem.dart';
 import 'package:koberorder/app/modules/search/views/search_view.dart';
@@ -19,71 +20,64 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     Get.put(HomeController());
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Menu'),
-          actions: [
-            IconButton(
-              onPressed: () => Get.to(const SearchView()),
-              icon: const FaIcon(
-                FontAwesomeIcons.magnifyingGlass,
-                size: 18.0,
-              ),
+      appBar: AppBar(
+        title: const Text('Menu'),
+        actions: [
+          IconButton(
+            onPressed: () => Get.to(const SearchView()),
+            icon: const FaIcon(
+              FontAwesomeIcons.magnifyingGlass,
+              size: 18.0,
             ),
-            IconButton(
-              onPressed: () => Get.to(const CartView()),
-              icon: const FaIcon(
-                FontAwesomeIcons.cartShopping,
-                size: 18.0,
-              ),
+          ),
+          IconButton(
+            onPressed: () => Get.to(const CartView()),
+            icon: const FaIcon(
+              FontAwesomeIcons.cartShopping,
+              size: 18.0,
             ),
-          ],
-        ),
-        body: Obx(
-          () => controller.isLoading.value
-              ? const Center(
-                  child: CircularProgressIndicator(
-                  color: AppColour.APPBAR_HEADER_COL0R,
-                ))
-              : Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: VerticalTabs(
-                        tabsShadowColor: Colors.transparent,
-                        tabBackgroundColor: AppColour.COLOR_WHITE,
-                        backgroundColor: AppColour.COLOR_WHITE,
-                        indicatorColor: AppColour.APPBAR_HEADER_COL0R,
-                        selectedTabBackgroundColor: Colors.transparent,
-                        indicatorWidth: 2,
-                        indicatorSide: IndicatorSide.end,
-                        tabsWidth: 80,
-                        direction: TextDirection.ltr,
-                        contentScrollAxis: Axis.vertical,
-                        changePageDuration: const Duration(milliseconds: 500),
-                        tabs: controller.kategoriList.map(
-                          (e) {
-                            return Tab(
-                              child: tabItem(
-                                  title: '${e.name}',
-                                  icon:
-                                      'https://kober.digitaloka.id/admin/storage/app/public/category/${e.image}'),
-                            );
-                          },
-                        ).toList(),
-                        contents: [
-                          tabsContent('Flutter',
-                              'You can change page by scrolling content vertically'),
-                          tabsContent('Dart'),
-                          tabsContent('Javascript'),
-                          tabsContent('NodeJS'),
-                          tabsContent('NodeJS'),
-                          tabsContent('NodeJS'),
-                          tabsContent('NodeJS'),
-                        ],
-                      ),
+          ),
+        ],
+      ),
+      body: Obx(
+        () => controller.isLoading.value
+            ? const Center(
+                child: CircularProgressIndicator(
+                color: AppColour.APPBAR_HEADER_COL0R,
+              ))
+            : Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: VerticalTabs(
+                      tabsShadowColor: Colors.transparent,
+                      tabBackgroundColor: AppColour.COLOR_WHITE,
+                      backgroundColor: AppColour.COLOR_WHITE,
+                      indicatorColor: AppColour.APPBAR_HEADER_COL0R,
+                      selectedTabBackgroundColor: Colors.transparent,
+                      indicatorWidth: 2,
+                      indicatorSide: IndicatorSide.end,
+                      tabsWidth: 80,
+                      direction: TextDirection.ltr,
+                      contentScrollAxis: Axis.vertical,
+                      changePageDuration: const Duration(milliseconds: 500),
+                      tabs: controller.kategoriList.map((kat) {
+                        return Tab(
+                          child: tabItem(title: kat.name, icon: kat.icon!),
+                        );
+                      }).toList(),
+                      contents: controller.kategoriList.map((kat) {
+                        var prod = controller.productList
+                            .where((p) => p.idKategori == kat.id)
+                            .toList();
+
+                        return tabsContent(prod);
+                      }).toList(),
                     ),
-                  ],
-                ),
-        ));
+                  ),
+                ],
+              ),
+      ),
+    );
   }
 }

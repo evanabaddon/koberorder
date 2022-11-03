@@ -26,7 +26,7 @@ Widget drawerFooter() {
               const Text(
                 "Customer Care : ",
                 style: TextStyle(
-                  fontSize: 8.0,
+                  fontSize: 10.0,
                 ),
               ),
               ElevatedButton.icon(
@@ -37,7 +37,7 @@ Widget drawerFooter() {
                 label: const Text(
                   "08123456798",
                   style: TextStyle(
-                    fontSize: 8.0,
+                    fontSize: 10.0,
                   ),
                 ),
                 style: ElevatedButton.styleFrom(

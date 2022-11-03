@@ -10,7 +10,7 @@ Widget drawerItem({GestureTapCallback? onTap, required String text}) {
           child: Text(
             text,
             style: const TextStyle(
-                fontSize: 12.0, color: AppColour.APPBAR_HEADER_COL0R),
+                fontSize: 14.0, color: AppColour.APPBAR_HEADER_COL0R),
           ),
         ),
       ],

@@ -10,7 +10,12 @@ Widget drawerHeader() {
           image: NetworkImage("https://i.ibb.co/PGv8ZzG/me.jpg"),
           fit: BoxFit.cover),
     ),
-    accountName: Text('Evan Helga'),
+    accountName: Text(
+      'Evan Helga',
+      style: TextStyle(
+        fontSize: 16.0,
+      ),
+    ),
     accountEmail: Text('test@gmail.com'),
   );
 }
