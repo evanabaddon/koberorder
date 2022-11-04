@@ -1,9 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:koberorder/app/data/models/produk.dart';
 import 'package:koberorder/app/modules/cart/views/cart_view.dart';
 import 'package:koberorder/app/modules/home/views/widgets/tabItem.dart';
 import 'package:koberorder/app/modules/search/views/search_view.dart';
@@ -70,7 +67,6 @@ class HomeView extends GetView<HomeController> {
                         var prod = controller.productList
                             .where((p) => p.idKategori == kat.id)
                             .toList();
-
                         return tabsContent(prod);
                       }).toList(),
                     ),

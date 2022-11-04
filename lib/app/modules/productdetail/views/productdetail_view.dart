@@ -19,7 +19,7 @@ class ProductdetailView extends GetView<ProductdetailController> {
         child: Stack(
           children: [
             FadeInImage(
-              width: Get.size.width,
+              width: Get.width,
               image: NetworkImage(prod.image == null
                   ? "assets/images/placeholder.jpg"
                   : prod.image!),
@@ -28,12 +28,12 @@ class ProductdetailView extends GetView<ProductdetailController> {
                 return Image.asset('assets/images/placeholder.jpg',
                     fit: BoxFit.cover);
               },
-              fit: BoxFit.fill,
+              fit: BoxFit.cover,
             ),
             ListView(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 300),
+                  padding: const EdgeInsets.only(top: 250),
                   child: Container(
                     width: Get.width,
                     height: Get.height,

@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:koberorder/app/data/models/produk.dart';
@@ -16,8 +18,8 @@ Widget tabsContent(List<Produk> prod) {
             child: GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                mainAxisSpacing: 6,
-                crossAxisSpacing: 6,
+                mainAxisSpacing: 12,
+                crossAxisSpacing: 16,
               ),
               itemCount: prod.length,
               shrinkWrap: true,

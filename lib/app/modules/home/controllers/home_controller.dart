@@ -1,9 +1,7 @@
 import 'dart:convert';
 import "package:http/http.dart" as http;
 import 'package:get/get.dart';
-import 'package:koberorder/app/data/models/categories.dart';
 import 'package:koberorder/app/data/models/kategori.dart';
-import 'package:koberorder/app/data/models/products.dart';
 import 'package:koberorder/app/data/models/produk.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -17,16 +15,6 @@ class HomeController extends GetxController {
     super.onInit();
     getKategori();
     getProduct();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
   }
 
   getToken() async {
@@ -46,6 +34,7 @@ class HomeController extends GetxController {
       },
     );
     if (response.statusCode == 200) {
+      print(response.body);
       Map obj = jsonDecode(response.body);
       var data = obj['data'];
 

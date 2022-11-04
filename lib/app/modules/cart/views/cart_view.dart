@@ -13,7 +13,7 @@ class CartView extends GetView<CartController> {
         title: const Text('CartView'),
         centerTitle: true,
       ),
-      body: Center(
+      body: const Center(
         child: Text(
           'CartView is working',
           style: TextStyle(fontSize: 20),

@@ -13,7 +13,7 @@ class StoredetailView extends GetView<StoredetailController> {
         title: const Text('StoredetailView'),
         centerTitle: true,
       ),
-      body: Center(
+      body: const Center(
         child: Text(
           'StoredetailView is working',
           style: TextStyle(fontSize: 20),

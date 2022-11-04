@@ -13,7 +13,7 @@ class CouponView extends GetView<CouponController> {
         title: const Text('CouponView'),
         centerTitle: true,
       ),
-      body: Center(
+      body: const Center(
         child: Text(
           'CouponView is working',
           style: TextStyle(fontSize: 20),
