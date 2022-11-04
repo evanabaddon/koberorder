@@ -28,22 +28,18 @@ class HomeController extends GetxController {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? newtoken = prefs.getString('token');
     var response = await http.get(
-      Uri.parse("https://kobermie.com/api/kategori"),
+      Uri.parse("https://kobermie.com/api/kategori?orderby=id,asc"),
       headers: {
         "Authorization": "Bearer $newtoken",
       },
     );
     if (response.statusCode == 200) {
-      print(response.body);
       Map obj = jsonDecode(response.body);
       var data = obj['data'];
-
       for (var element in data) {
         kategoriList.add(Kategori.fromJson(element));
       }
-
       isLoading.value = false;
-
       update();
     } else {
       return kategoriList;
@@ -56,7 +52,7 @@ class HomeController extends GetxController {
     String? newtoken = prefs.getString('token');
 
     var response = await http.get(
-      Uri.parse("https://kobermie.com/api/produk_all"),
+      Uri.parse("https://kobermie.com/api/produk_all?orderby=name,asc"),
       headers: {
         "Authorization": "Bearer $newtoken",
       },
@@ -69,51 +65,10 @@ class HomeController extends GetxController {
       for (var element in data) {
         productList.add(Produk.fromJson(element));
       }
-      print(productList.first.image);
       isLoading.value = false;
       update();
     } else {
       return productList;
     }
   }
-
-  // getKategori() async {
-  //   isLoading.value = true;
-  //   var response = await http.get(
-  //     Uri.parse("https://kober.digitaloka.id/admin/api/v1/categories"),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   );
-  //   if (response.statusCode == 200) {
-  //     var cat = jsonDecode(response.body);
-  //     for (var element in cat) {
-  //       kategoriList.add(Categories.fromJson(element));
-  //     }
-  //     isLoading.value = false;
-  //   } else {
-  //     return kategoriList;
-  //   }
-  // }
-
-  // getProduct(String catid) async {
-  //   isLoading.value = true;
-  //   var response = await http.get(
-  //     Uri.parse(
-  //         "https://kober.digitaloka.id/admin/api/v1/categories/products/$catid"),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   );
-  //   if (response.statusCode == 200) {
-  //     var prod = jsonDecode(response.body);
-  //     for (var element in prod) {
-  //       productList.add(Products.fromJson(element));
-  //     }
-  //     print(productList);
-  //     isLoading.value = false;
-  //   } else {
-  //     return productList;
-  //   }
-  // }
 }
