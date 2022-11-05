@@ -45,7 +45,7 @@ class OnboardingView extends GetView<OnboardingController> {
           drawerHeader(),
           itemKupon(),
           drawerItem(
-            text: "KoberBox",
+            text: "Kober News",
           ),
           drawerItem(
             text: "Kupon",
@@ -304,19 +304,6 @@ class OnboardingView extends GetView<OnboardingController> {
                     ),
                   ),
                 ),
-                // Container(
-                //   color: AppColour.APPBAR_HEADER_COL0R.withOpacity(0.8),
-                //   child: Padding(
-                //     padding: const EdgeInsets.all(20.0),
-                //     child: Row(
-                //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //       children: [
-                //         Text("text"),
-                //         Text("text"),
-                //       ],
-                //     ),
-                //   ),
-                // ),
               ],
             ),
           )

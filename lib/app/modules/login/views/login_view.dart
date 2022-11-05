@@ -53,15 +53,19 @@ class LoginView extends GetView<LoginController> {
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Row(
                       children: [
-                        const Text('+62'),
+                        const Text(
+                          '+62',
+                          style: TextStyle(fontSize: 18),
+                        ),
                         const SizedBox(
                           width: 10.0,
                         ),
                         Expanded(
                           child: TextField(
+                            style: const TextStyle(fontSize: 18),
                             keyboardType: TextInputType.number,
                             controller: controller.phone.value,
                             cursorColor: AppColour.APPBAR_HEADER_COL0R,

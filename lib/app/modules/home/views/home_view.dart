@@ -67,7 +67,8 @@ class HomeView extends GetView<HomeController> {
                         var prod = controller.productList
                             .where((p) => p.idKategori == kat.id)
                             .toList();
-                        return tabsContent(prod);
+
+                        return tabsContent(prod, kat, controller.bannerList);
                       }).toList(),
                     ),
                   ),
