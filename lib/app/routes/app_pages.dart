@@ -6,8 +6,12 @@ import '../modules/coupon/bindings/coupon_binding.dart';
 import '../modules/coupon/views/coupon_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/login/bindings/login_binding.dart';
+import '../modules/login/views/login_view.dart';
 import '../modules/onboarding/bindings/onboarding_binding.dart';
 import '../modules/onboarding/views/onboarding_view.dart';
+import '../modules/otp/bindings/otp_binding.dart';
+import '../modules/otp/views/otp_view.dart';
 import '../modules/productdetail/bindings/productdetail_binding.dart';
 import '../modules/productdetail/views/productdetail_view.dart';
 import '../modules/search/bindings/search_binding.dart';
@@ -25,7 +29,7 @@ class AppPages {
   AppPages._();
 
   // ignore: constant_identifier_names
-  static const INITIAL = Routes.ONBOARDING;
+  static const INITIAL = Routes.STARTUP;
 
   static final routes = [
     GetPage(
@@ -65,13 +69,23 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.STARTUP,
-      page: () => const StartupView(),
+      page: () => StartupView(),
       binding: StartupBinding(),
     ),
     GetPage(
       name: _Paths.PRODUCTDETAIL,
       page: () => const ProductdetailView(),
       binding: ProductdetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.LOGIN,
+      page: () => const LoginView(),
+      binding: LoginBinding(),
+    ),
+    GetPage(
+      name: _Paths.OTP,
+      page: () => const OtpView(),
+      binding: OtpBinding(),
     ),
   ];
 }

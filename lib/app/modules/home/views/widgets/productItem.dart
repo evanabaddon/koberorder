@@ -5,17 +5,16 @@ import 'package:koberorder/util/colour.dart';
 
 Widget productItem(List<Produk> prod, BuildContext context, int index) {
   return Column(
-    mainAxisAlignment: MainAxisAlignment.start,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: Container(
           width: 325,
-          height: 100,
+          height: 150,
           color: AppColour.BACKGROUND_COLOR,
           child: FadeInImage(
-            height: 100,
+            height: 250,
             image: NetworkImage(prod[index].image == null
                 ? "assets/images/placeholder.jpg"
                 : prod[index].image!),
@@ -24,7 +23,7 @@ Widget productItem(List<Produk> prod, BuildContext context, int index) {
               return Image.asset('assets/images/placeholder.jpg',
                   fit: BoxFit.fitWidth);
             },
-            fit: BoxFit.fitWidth,
+            fit: BoxFit.cover,
           ),
         ),
       ),

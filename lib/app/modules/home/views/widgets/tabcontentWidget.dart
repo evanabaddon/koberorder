@@ -19,12 +19,12 @@ Widget tabsContent(List<Produk> prod) {
                   child: GridView.builder(
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 12,
-                      crossAxisSpacing: 16,
-                    ),
+                            crossAxisCount: 2,
+                            mainAxisSpacing: 12,
+                            crossAxisSpacing: 16,
+                            mainAxisExtent: 200),
                     itemCount: prod.length,
-                    shrinkWrap: true,
+                    shrinkWrap: false,
                     physics: const ScrollPhysics(),
                     itemBuilder: (BuildContext context, int index) {
                       return InkWell(

@@ -33,7 +33,7 @@ class ProductdetailView extends GetView<ProductdetailController> {
             ListView(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 250),
+                  padding: const EdgeInsets.only(top: 400),
                   child: Container(
                     width: Get.width,
                     height: Get.height,

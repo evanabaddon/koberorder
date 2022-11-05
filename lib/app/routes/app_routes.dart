@@ -15,6 +15,8 @@ abstract class Routes {
   static const MENU = _Paths.MENU;
   static const STARTUP = _Paths.STARTUP;
   static const PRODUCTDETAIL = _Paths.PRODUCTDETAIL;
+  static const LOGIN = _Paths.LOGIN;
+  static const OTP = _Paths.OTP;
 }
 
 abstract class _Paths {
@@ -29,4 +31,6 @@ abstract class _Paths {
   static const MENU = '/menu';
   static const STARTUP = '/startup';
   static const PRODUCTDETAIL = '/productdetail';
+  static const LOGIN = '/login';
+  static const OTP = '/otp';
 }
