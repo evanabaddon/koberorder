@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:koberorder/app/data/models/produk.dart';
+import 'package:koberorder/app/modules/cart/controllers/cart_controller.dart';
+import 'package:koberorder/app/modules/cart/views/cart_view.dart';
 import 'package:koberorder/util/colour.dart';
 import '../controllers/productdetail_controller.dart';
 
@@ -10,10 +12,21 @@ class ProductdetailView extends GetView<ProductdetailController> {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(ProductdetailController());
+    CartController cartC = Get.put(CartController());
     Produk prod = Get.arguments;
     return Scaffold(
       appBar: AppBar(
-        title: Text(prod.name),
+        title: Text(prod.name.toUpperCase()),
+        actions: [
+          IconButton(
+            onPressed: () => Get.to(const CartView()),
+            icon: const FaIcon(
+              FontAwesomeIcons.cartShopping,
+              size: 18.0,
+            ),
+          ),
+        ],
       ),
       body: SafeArea(
         child: Stack(
@@ -114,23 +127,65 @@ class ProductdetailView extends GetView<ProductdetailController> {
               bottom: 0,
               right: 0,
               left: 0,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton.icon(
-                  icon: const FaIcon(
-                    FontAwesomeIcons.cartPlus,
-                    size: 16,
-                  ),
-                  label: const Text("Beli"),
-                  style: ElevatedButton.styleFrom(
-                    fixedSize: const Size(45, 45),
-                    backgroundColor: AppColour.APPBAR_HEADER_COL0R,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50), // <-- Radius
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColour.APPBAR_HEADER_COL0R,
+                            shape: const CircleBorder(),
+                          ),
+                          onPressed: () => {
+                            if (cartC.count > 1) {cartC.decrement()}
+                          },
+                          child: const FaIcon(FontAwesomeIcons.minus),
+                        ),
+                        Obx(
+                          () => SizedBox(
+                              width: 20,
+                              child:
+                                  Center(child: Text(cartC.count.toString()))),
+                        ),
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColour.APPBAR_HEADER_COL0R,
+                            shape: const CircleBorder(),
+                          ),
+                          onPressed: () => cartC.increment(),
+                          child: const FaIcon(FontAwesomeIcons.plus),
+                        ),
+                      ],
                     ),
                   ),
-                  onPressed: () {},
-                ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ElevatedButton.icon(
+                        icon: const FaIcon(
+                          FontAwesomeIcons.cartPlus,
+                          size: 16,
+                        ),
+                        label: const Text("BELI"),
+                        style: ElevatedButton.styleFrom(
+                          fixedSize: const Size(45, 45),
+                          backgroundColor: AppColour.APPBAR_HEADER_COL0R,
+                          shape: RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.circular(50), // <-- Radius
+                          ),
+                        ),
+                        onPressed: () => Get.to(
+                          const CartView(),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             )
           ],

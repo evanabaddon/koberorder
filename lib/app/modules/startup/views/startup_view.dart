@@ -96,8 +96,6 @@ class StartupView extends GetView<StartupController> {
                       style: ElevatedButton.styleFrom(
                         fixedSize: Size(Get.height, 50),
                         backgroundColor: AppColour.COLOR_WHITE,
-                        side: const BorderSide(
-                            color: AppColour.APPBAR_HEADER_COL0R),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15), // <-- Radius
                         ),

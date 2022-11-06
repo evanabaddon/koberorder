@@ -29,7 +29,7 @@ Widget poinWidget() {
             ),
           ),
           Text(
-            "Poin",
+            " Poin",
             style: TextStyle(
               fontSize: 12.0,
               fontWeight: FontWeight.bold,

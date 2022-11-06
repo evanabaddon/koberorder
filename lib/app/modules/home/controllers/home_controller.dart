@@ -6,7 +6,7 @@ import 'package:koberorder/app/data/models/kategori.dart';
 import 'package:koberorder/app/data/models/produk.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class HomeController extends GetxController {
+class HomeController extends GetxController with StateMixin {
   var kategoriList = List<Kategori>.empty().obs;
   var productList = List<Produk>.empty().obs;
   var bannerList = List<BannerInfo>.empty().obs;
@@ -14,10 +14,10 @@ class HomeController extends GetxController {
   final catId = 0.obs;
   @override
   void onInit() {
-    super.onInit();
     getKategori();
     getProduct();
     getBanner();
+    super.onInit();
   }
 
   getToken() async {
@@ -42,8 +42,8 @@ class HomeController extends GetxController {
       for (var element in data) {
         bannerList.add(BannerInfo.fromJson(element));
       }
-      isLoading.value = false;
       update();
+      isLoading.value = false;
     } else {
       return bannerList;
     }
@@ -51,6 +51,7 @@ class HomeController extends GetxController {
 
   getKategori() async {
     isLoading.value = true;
+    change(null, status: RxStatus.loading());
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? newtoken = prefs.getString('token');
     var response = await http.get(
@@ -65,8 +66,9 @@ class HomeController extends GetxController {
       for (var element in data) {
         kategoriList.add(Kategori.fromJson(element));
       }
-      isLoading.value = false;
       update();
+      change(null, status: RxStatus.success());
+      isLoading.value = false;
     } else {
       return kategoriList;
     }
@@ -74,6 +76,7 @@ class HomeController extends GetxController {
 
   getProduct() async {
     isLoading.value = true;
+    change(null, status: RxStatus.loading());
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? newtoken = prefs.getString('token');
 
@@ -91,8 +94,9 @@ class HomeController extends GetxController {
       for (var element in data) {
         productList.add(Produk.fromJson(element));
       }
-      isLoading.value = false;
       update();
+      change(null, status: RxStatus.success());
+      isLoading.value = false;
     } else {
       return productList;
     }
